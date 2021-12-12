@@ -1,11 +1,10 @@
-package service;
+package component;
 
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.contact.Friend;
 import net.mamoe.mirai.event.GlobalEventChannel;
 import net.mamoe.mirai.event.Listener;
 import net.mamoe.mirai.event.events.FriendMessageEvent;
-import net.mamoe.mirai.event.events.GroupMessageEvent;
 import net.mamoe.mirai.message.data.Image;
 import net.mamoe.mirai.message.data.MessageChain;
 import net.mamoe.mirai.utils.ExternalResource;
@@ -15,13 +14,13 @@ import utils.RSSUtils;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class RespondService {
+public class ResponseComponent {
     private static final RSSUtils rssUtils = new RSSUtils();
     private static Friend friend;
     private static final String[] keywords = new String[] {"必应每日一图", "来一份涩图", "随机景色", "随机东方图"};
     private static final String[] urls = new String[] {"https://api.szfx.top/bing/api/", "https://tva1.sinaimg.cn/large/0072Vf1pgy1fodqgiodg1j31gs1191im.jpg", "https://cdn.ghser.com/random/bg/bg%20(131).jpg", "https://img.paulzzh.com/touhou/random"};
 
-    public static void begin(Bot bot, long qq) {
+    public static void listenerRegister(Bot bot, long qq) {
         System.out.println("ok");
         friend = bot.getFriend(qq);
         if(friend != null) {

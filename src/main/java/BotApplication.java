@@ -2,12 +2,12 @@ import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactory;
 import net.mamoe.mirai.utils.BotConfiguration;
 import net.mamoe.mirai.utils.DeviceInfo;
-import service.RespondService;
+import component.ResponseComponent;
 
 import java.io.File;
 
 public class BotApplication {
-    private static final RespondService service = new RespondService();
+    private static final ResponseComponent RESPONSESERVICE = new ResponseComponent();
     public static void main(String[] args) {
         long qq = Long.parseLong(args[0]);
         String password = args[1];
@@ -22,7 +22,7 @@ public class BotApplication {
         }});
         bot.login();
         System.out.println("Bot started");
-        service.begin(bot, masterqq);
+        RESPONSESERVICE.listenerRegister(bot, masterqq);
     }
 
 }
