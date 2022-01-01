@@ -21,16 +21,15 @@ public class ResponseComponent {
     private static final String[] urls = new String[] {"https://api.szfx.top/bing/api/", "https://tva1.sinaimg.cn/large/0072Vf1pgy1fodqgiodg1j31gs1191im.jpg", "https://cdn.ghser.com/random/bg/bg%20(131).jpg", "https://img.paulzzh.com/touhou/random"};
 
     public static void listenerRegister(Bot bot, long qq) {
-        System.out.println("ok");
-        friend = bot.getFriend(qq);
-        if(friend != null) {
-            friend.sendMessage("狗修金萨玛我上线了瞄");
-        }
+
         Listener listener = GlobalEventChannel.INSTANCE.subscribeAlways(FriendMessageEvent.class, event -> {
-            friend.sendMessage("收到瞄");
             MessageChain chain = event.getMessage();
             String json = MessageChain.serializeToJsonString(chain);
-            System.out.println("收到狗修金萨玛的消息: " + json);
+            // System.out.println("收到狗修金萨玛的消息: " + json);
+            if(json.contains("伤心")) {
+                event.getSubject().sendMessage("主人加油, 相信自己");
+                event.getSubject().sendMessage("要自信哦瞄");
+            }
             int index = 0;
             for (String keyword : keywords) {
                 if (json.contains(keyword)) {

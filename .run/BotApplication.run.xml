@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="BotApplication" type="Application" factoryName="Application" nameIsGenerated="true">
+    <option name="MAIN_CLASS_NAME" value="BotApplication" />
+    <module name="HbannedBot" />
+    <option name="PROGRAM_PARAMETERS" value="3592652574 BotPassword1234 1099065157 http://47.98.60.14:1200 443953314" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
