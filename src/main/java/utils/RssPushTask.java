@@ -37,7 +37,7 @@ public class RssPushTask extends TimerTask {
         for (Up up : followings) {
             try {
                 Video newestVideo = RSSUtils.getNewestVideo(rooturl, up.getUid());
-                if(newestVideo != null && !newestVideo.equals(RSSUtils.getBiliUp(up.getUid()))) {
+                if(newestVideo != null && !newestVideo.getUrl().equals(RSSUtils.getBiliUp(up.getUid()))) {
                     RSSUtils.setBiliUp(up.getUid(), newestVideo.getUrl());
                     master.sendMessage("您关注的up主" + up.getName() + "有新视频啦！\n" + newestVideo.getTitle() + "\n" + newestVideo.getUrl());
                 }
